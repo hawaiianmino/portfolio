@@ -239,6 +239,47 @@ body{
         font-size: 13px;
         margin-bottom: 20px;
     }
+    .scrolldown{
+        position: absolute;
+        bottom: 1%;
+        right: 50%;
+        animation: arrowmove 1s ease-in-out infinite;
+        @keyframes arrowmove {
+            0%{bottom: 1%;}
+            50%{bottom: 3%;}
+            100%{bottom: 1%;}
+        }
+        span{
+            position: absolute;
+            left: -20px;
+            bottom: 10px;
+            color: #2d2d2d;
+            font-size: 0.7rem;
+            letter-spacing: 0.05rem;
+            -ms-writing-mode: tb-rl;
+            -webkit-writing-mode:vertical-rl;
+            writing-mode: vertical-rl;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: -6px;
+            width: 1px;
+            height: 20px;
+            background: #2d2d2d;
+            transform: skewX(-31deg);
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 1px;
+            height: 50px;
+            background: #2d2d2d;
+        }
+    }
 }
 /************************
         #about
