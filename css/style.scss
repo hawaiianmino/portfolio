@@ -1,0 +1,525 @@
+@charset 'utf-8';
+
+/************************
+    レスポンシブ対応
+************************/
+/* 変数宣言 */
+$pc:768px;
+$sp:767px;
+@mixin pc {
+    @media (min-width: ($pc)) {
+        @content;
+    }
+}
+@mixin sp {
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
+
+/************************
+        共通CSS
+************************/
+body{
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.05em;
+    color: #2d2d2d;
+}
+:root{
+    --basecolor:#2d4059;
+    --subcolor:#eaedf1;
+    --accentcolor:#ea5455;
+}
+.sp-only{
+    display: block;
+    @include pc(){
+        display: none;
+    }
+}
+.pc-only{
+    display: none;
+    @include pc(){
+        display: block;
+    }
+}
+.container{
+    padding: 0 20px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+.section-ttl{
+    font-size: 28px;
+    text-align: center;
+    color: var(--basecolor);
+    margin-bottom: 5px;
+    position: relative;
+    &::before{
+        content: '私について';
+        font-size: 12px;
+        display: inline-block;
+        font-weight: normal;
+        position: absolute;
+        top: -10px;
+        left: 0;
+        right: 0;
+    }
+}
+.sub-ttl{
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+.btn{
+    display: inline-block;
+    width: 250px;
+    background-color: var(--accentcolor);
+    color: #fff!important;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    padding: 13px 0;
+    box-shadow: 0px 2px 2px #7c87a0;
+    border-radius: 5px;
+    &:hover{
+        opacity: 0.8;
+        transition: all .3s;
+    }
+}
+
+/************************
+        header
+************************/
+.header{
+    height: 80px;
+    background-color: var(--basecolor);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    @include sp(){
+        height: 60px;
+    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+    .header-logo{
+        img{
+            width: auto;
+            height: 30px;
+            vertical-align: middle;
+        }
+    }
+}
+/* ハンバーガーメニュー */
+.drawer-hidden{
+    display: none;
+}
+.drawer-open{
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    cursor: pointer;
+    span,span::before,span::after{
+        content: '';
+        display: block;
+        height: 3px;
+        width: 25px;
+        border-radius: 3px;
+        background:#fff;
+        transition: .5s;
+        position: absolute;
+    }
+    span::before{
+        bottom: 8px;
+    }
+    span::after{
+        top: 8px;
+    }
+}
+/* アイコンがクリックされたら真ん中の線を透明に */
+#drawer-check:checked ~ .drawer-open span{
+    background: rgba(255,255,255,0);
+    &::before{
+        bottom: 0;
+        transform: rotate(45deg);
+    }
+    &::after{
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}
+// メニューのデザイン
+.drawer-content{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%; /*画面外へ飛ばす*/
+    z-index: 99;
+    background:rgba(0,0,0,0.9);
+    transition: .5s;
+    color: #fff;
+    .drawer-list{
+        margin-top: 100px;
+    }
+    .drawer-item{
+        padding: 20px 0;
+        text-align: center;
+        a{
+            text-decoration: none;
+        }
+    }
+}
+/* アイコンがクリックされたらメニューを表示 */
+#drawer-check:checked ~ .drawer-content{
+    left: 0; /*メニューを画面にいれる*/
+}
+
+/* PCメニュー*/
+.pc-menu-list{
+    display: flex;
+    .pc-menu{
+        &:not(:last-child){
+            margin-right: 30px;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+            font-size: 15px;
+            font-weight: normal;
+        }
+    }
+}
+
+
+/************************
+        #hero
+************************/
+#hero{
+    height: 400px;
+    width: 100%;
+    position: relative;
+    background: url('../img/fv-sp.jpg') no-repeat;
+    background-size: cover;
+    background-position: 100px 0px;
+    margin-top: 60px;
+    @include pc(){
+        background: url('../img/fv-pc.jpg') no-repeat;
+        background-size: cover;
+        background-position: 19vw 0;
+    }
+    .hero-wrap{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        .sub-ttl{
+            text-align: left;
+        }
+    }
+    .name{
+        font-size: 32px;
+        font-weight: 700;
+    }
+    .sub-ttl{
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .hero-cnt{
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+}
+/************************
+        #about
+************************/
+#about{
+    padding: 50px 0;
+    background-color: var(--subcolor);
+    .section-ttl{
+        margin-bottom: 15px;
+        @include pc(){
+            margin-bottom: 30px;
+        }
+    }
+    .about-wrap{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .profile-img{
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .about-name{
+        margin-bottom: 15px;
+        font-size: 24px;
+        font-weight: 700;
+        small{
+            font-size: 16px;
+        }
+    }
+    .about-cnt{
+        line-height: 1.5;
+        font-size: 15px;
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+    @include pc{
+        .about-wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: initial;
+            .profile-img{
+                flex: 1;
+                margin-right: 40px;
+                margin-bottom: 0;
+                img{
+                    vertical-align: bottom;
+                }
+            }
+            .about-txt{
+                flex: 1;
+            }
+        }
+    }
+}
+/************************
+        #service
+************************/
+#service{
+    padding: 50px 0;
+    .section-ttl{
+        margin-bottom: 5px;
+        &::before{
+            content: 'サービス';
+        }
+    }
+    .service{
+        background-color: var(--subcolor);
+        padding: 20px;
+        text-align: center;
+        color: #4b4b4b;
+        max-width: 66.6vw;
+        margin: 0 auto 10px;
+        span{
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .service-ttl{
+            font-size: 18px;
+        }
+        .service-cnt{
+            font-size: 14px;
+            font-weight: normal;
+            text-align: left;
+            line-height: 1.5;
+            margin-top: auto;
+        }
+
+    }
+    @include pc(){
+        .service-wrap{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            .service{
+                margin: 0 10px 20px 10px;
+                flex: 1 1 250px;
+            }
+        }
+    }
+}
+/************************
+        #works
+************************/
+#works{
+    padding: 50px 0;
+    background-color: var(--subcolor);
+    .section-ttl::before{
+        content: '制作物';
+    }
+    dl{
+        dt{
+            background-color: #394867;
+            color: #fff;
+            padding: 16px 0;
+            text-align: center;
+            font-size: 18px;
+            position: relative;
+            border: 1px solid var(--subcolor);
+            &::after{
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                content: '\f0d7';
+                display: inline-block;
+                font-size: 20px;
+                position: absolute;
+                right: 60px;
+                transition: .3s ease-in-out;
+            }
+            &.open::after{
+                transform: rotate(180deg);
+                transition: .3s ease-in-out;
+
+            }
+        }
+        dd{
+            background-color: #fff;
+            padding: 20px 0;
+            display: none;
+            .tab-txt{
+                &:not(:last-child){
+                    margin-bottom: 20px;
+                }
+            }
+            .work-img{
+                margin-bottom: 10px;
+                img{
+                    max-width: 250px;
+                    max-height: 200px;
+                    vertical-align: bottom;
+                }
+                text-align: center;
+            }
+            .work-ttl{
+                text-align: center;
+                font-size: 16px;
+                font-weight: 700;
+                margin-bottom: 5px;
+            }
+            .work-cnt{
+                width: 85%;
+                margin: 0 auto 20px;
+                font-size: 14px;
+                font-weight: normal;
+            }
+            .work-btn{
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .tab-group{
+        display: flex;
+        .tab{
+            flex: 1;
+            text-align: center;
+            background-color: var(--basecolor);
+            color: #fff;
+            padding: 17px 0;
+            cursor: pointer;
+            &:not(:last-child){
+                border-right: 1px solid #fff;
+            }
+            &.active{
+                background-color: #fff;
+                color: #000;
+                text-decoration: underline;
+            }
+        }
+        @include sp(){
+            display: none;
+        }
+    }
+    .tab-cnt-group{
+        padding: 35px 20px;
+        background-color: #fff;
+        .tab-cnt{
+            display: none;
+            flex-wrap: wrap;
+            &.show{
+                display: flex;
+                justify-content: center;
+            }
+            .tab-txt{
+                flex: 0 0 250px ;
+                margin: 0 10px 20px;
+                display: flex;
+                flex-direction: column;
+                .work-img{
+                    margin-bottom: 20px;
+                }
+                img{
+                    height:170px;
+                    width: 100%;
+                    vertical-align: bottom;
+                }
+                .work-cnt{
+                    font-size: 15px;
+                    line-height: 1.5;
+                    margin-bottom: 20px;
+                }
+            }
+            &:last-child{
+                img{
+                    height: 200px;
+                }
+            }
+        }
+        .work-ttl{
+            font-size: 18px;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+    }
+    .work-btn{
+        text-align: center;
+        margin-top: auto;
+        a{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--accentcolor);
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            &:hover{
+                opacity: 0.8;
+                transition: all .3s;
+            }
+        }
+    }
+}
+/************************
+        #contact
+************************/
+#contact{
+    padding: 50px 0;
+    text-align: center;
+    .section-ttl::before{
+        content: 'コンタクト';
+    }
+    .sub-ttl{
+        margin-bottom: 40px;
+    }
+
+}
+/************************
+        .footer
+************************/
+.footer{
+    padding: 23px 0;
+    text-align: center;
+    color: #fff;
+    background-color: var(--basecolor);
+    font-size: 12px;
+    font-weight: normal;
+    .footer-logo{
+        margin-bottom: 10px;
+        img{
+            height: 35px;
+        }
+    }
+}
