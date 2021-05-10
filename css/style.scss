@@ -259,7 +259,11 @@ body{
             -ms-writing-mode: tb-rl;
             -webkit-writing-mode:vertical-rl;
             writing-mode: vertical-rl;
+<<<<<<< HEAD
             text-transform: uppercase;
+            text-transform: capitalize;
+=======
+>>>>>>> b88e9509029280c73f787577e5db0b6c5ff573e1
         }
         &::before{
             content: '';
