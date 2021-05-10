@@ -260,8 +260,11 @@ body{
             -webkit-writing-mode:vertical-rl;
             writing-mode: vertical-rl;
             text-transform: uppercase;
+<<<<<<< HEAD
             text-transform: lowercase;
         }
+=======
+>>>>>>> 4587bc9368c8e126c990045404ca67ef7d1fadef
         &::before{
             content: '';
             position: absolute;
