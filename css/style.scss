@@ -260,6 +260,7 @@ body{
             -webkit-writing-mode:vertical-rl;
             writing-mode: vertical-rl;
             text-transform: lowercase;
+            text-transform: uppercase;
         }
         &::before{
             content: '';
