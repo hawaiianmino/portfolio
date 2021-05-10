@@ -259,12 +259,7 @@ body{
             -ms-writing-mode: tb-rl;
             -webkit-writing-mode:vertical-rl;
             writing-mode: vertical-rl;
-<<<<<<< HEAD
-            text-transform: lowercase;
             text-transform: uppercase;
-=======
->>>>>>> 943c5d0856f0fb1dd7d2f76c036fd9b874edc8b9
-        }
         &::before{
             content: '';
             position: absolute;
