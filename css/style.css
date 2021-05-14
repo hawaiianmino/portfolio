@@ -295,15 +295,7 @@ body {
   -ms-writing-mode: tb-rl;
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
-<<<<<<< HEAD
   text-transform: lowercase;
-=======
-<<<<<<< HEAD
-  text-transform: uppercase;
-  text-transform: capitalize;
-=======
->>>>>>> b88e9509029280c73f787577e5db0b6c5ff573e1
->>>>>>> 2a1febe61b7adcc122782ff9fcb97b6a9fc49079
 }
 
 #hero .scrolldown::before {
