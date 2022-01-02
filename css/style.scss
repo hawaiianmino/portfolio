@@ -3,7 +3,7 @@
 /************************
     レスポンシブ対応
 ************************/
-/* 変数宣言 */
+/* レスポンシブ対応 */
 $pc:768px;
 $sp:767px;
 @mixin pc {
@@ -17,19 +17,23 @@ $sp:767px;
     }
 }
 
+// カラー
+$base-color:#2d4059;
+$sub-color:#eaedf1;
+$accent-color:#ea5455;
+$gradient-color:linear-gradient(118.6003723809439deg, rgba(2, 27, 62,1) 5.1967592592592595%,rgba(81, 119, 149,1) 97.32638888888889%);
+
 /************************
         共通CSS
 ************************/
 body{
-    font-family: 'M PLUS 1', sans-serif;
-    letter-spacing: 0.05em;
+    font-family: 'Noto Sans JP', sans-serif;
+    letter-spacing: 0.02em;
     color: #2d2d2d;
+    font-size: 16px;
 }
-:root{
-    --basecolor:#2d4059;
-    --subcolor:#eaedf1;
-    --accentcolor:#ea5455;
-    --gradientcolor: linear-gradient(118.6003723809439deg, rgba(2, 27, 62,1) 5.1967592592592595%,rgba(81, 119, 149,1) 97.32638888888889%);
+img {
+    vertical-align: bottom;
 }
 .sp-only{
     display: block;
@@ -49,9 +53,9 @@ body{
     margin: 0 auto;
 }
 .section-ttl{
-    font-size: 28px;
+    font-size: 30px;
     text-align: center;
-    color: var(--basecolor);
+    color: $base-color;
     margin-bottom: 5px;
     position: relative;
     &::before{
@@ -66,26 +70,60 @@ body{
     }
 }
 .sub-ttl{
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-weight: normal;
 }
+.btn-wrap{
+    display: flex;
+    justify-content: space-between;
+}
 .btn{
-    display: inline-block;
-    width: 250px;
-    background-color: var(--accentcolor);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 200px;
+    background-color: $accent-color;
     color: #fff!important;
-    font-size: 16px;
+    font-size: 15px;
     text-align: center;
     text-decoration: none;
-    padding: 13px 0;
-    box-shadow: 0px 2px 2px #7c87a0;
-    border-radius: 5px;
+    padding: .8em 1.5em;
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-top: 3px solid #fff;
+        border-right: 3px solid #fff;
+        transform: rotate(45deg);
+    }
     &:hover{
         opacity: 0.8;
         transition: all .3s;
     }
+    &.btn--small {
+        width: 65%;
+    }
+}
+.mb10 {
+    margin-bottom: 10px;
+}
+.mb30 {
+    margin-bottom: 30px;
+}
+.m-auto {
+    margin: 0 auto;
+}
+
+/************************
+        フォント
+************************/
+.ffMont {
+    font-family: 'Montserrat', sans-serif;
 }
 
 /************************
@@ -93,7 +131,7 @@ body{
 ************************/
 .header{
     height: 70px;
-    background: var(--gradientcolor);
+    background: $gradient-color;
     position: fixed;
     top: 0;
     left: 0;
@@ -197,7 +235,7 @@ body{
         a{
             text-decoration: none;
             color: #fff;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: normal;
         }
     }
@@ -216,11 +254,12 @@ body{
     background-position: 100px 0px;
     margin-top: 70px;
     @include pc(){
-        background: url('../img/fv-pc.jpg') no-repeat;
+        background: url('../img/fv-pc.jpg') no-repeat left bottom;
         background-size: cover;
-        background-position: 19vw 0;
     }
-    .hero-wrap{
+    .hero__text{
+        background: rgba( 255,255,255,.9);
+        padding: 20px;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -229,16 +268,16 @@ body{
         }
     }
     .name{
-        font-size: 32px;
+        font-size: 35px;
         font-weight: 700;
     }
     .sub-ttl{
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 20px;
     }
     .hero-cnt{
-        font-size: 13px;
-        margin-bottom: 20px;
+        font-size: 16px;
+        margin-bottom: 30px;
     }
     .scrolldown{
         position: absolute;
@@ -283,19 +322,35 @@ body{
         }
     }
 }
+// #hero .name {
+//     background-clip: text;
+//     -webkit-background-clip: text;
+//     background-image: url(../img/profile.png);
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     // color: rgba(0 0 0 / 0);
+//     color: rgba(222,222,100, .8);
+//     font-size: 80px;
+//     font-weight: 700;
+//     text-transform: uppercase;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%,-50%);
+// }  
 /************************
         #about
 ************************/
 #about{
-    padding: 50px 0;
-    background-color: var(--subcolor);
+    padding: 50px 0 70px;
+    background-color: $sub-color;
     .section-ttl{
         margin-bottom: 15px;
         @include pc(){
             margin-bottom: 30px;
         }
     }
-    .about-wrap{
+    .about__wrap{
         max-width: 500px;
         margin: 0 auto;
     }
@@ -316,8 +371,11 @@ body{
             background-position: 0 0, 3px 3px;
             z-index: -1;
         }
+        @include sp() {
+            margin-bottom: 30px;
+        }
     }
-    .about-name{
+    .about__name{
         margin-bottom: 15px;
         font-size: 24px;
         font-weight: 700;
@@ -325,15 +383,15 @@ body{
             font-size: 16px;
         }
     }
-    .about-cnt{
-        line-height: 1.5;
-        font-size: 15px;
+    .about__cnt{
+        line-height: 1.7;
+        // font-size: 15px;
         &:not(:last-child){
             margin-bottom: 10px;
         }
     }
     @include pc{
-        .about-wrap{
+        .about__wrap{
             display: flex;
             justify-content: center;
             align-items: center;
@@ -346,7 +404,7 @@ body{
                     vertical-align: bottom;
                 }
             }
-            .about-txt{
+            .about__txt{
                 flex: 1;
             }
         }
@@ -356,15 +414,15 @@ body{
         #service
 ************************/
 #service{
-    padding: 50px 0;
+    padding: 50px 0 70px;
     .section-ttl{
         margin-bottom: 5px;
         &::before{
             content: 'サービス';
         }
     }
-    .service{
-        background-color: var(--subcolor);
+    .service__item{
+        background-color: $sub-color;
         padding: 20px;
         text-align: center;
         color: #4b4b4b;
@@ -375,10 +433,10 @@ body{
             margin-bottom: 15px;
             display: inline-block;
         }
-        .service-ttl{
+        .service__ttl{
             font-size: 18px;
         }
-        .service-cnt{
+        .service__cnt{
             font-size: 14px;
             font-weight: normal;
             text-align: left;
@@ -388,13 +446,14 @@ body{
 
     }
     @include pc(){
-        .service-wrap{
+        .service__wrap{
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            .service{
+            .service__item{
                 margin: 0 10px 20px 10px;
-                flex: 1 1 250px;
+                // flex: 1 1 250px;
+                width: 30%;
             }
         }
     }
@@ -402,164 +461,150 @@ body{
 /************************
         #works
 ************************/
-#works{
-    padding: 50px 0;
-    background-color: var(--subcolor);
+#works {
+    padding: 50px 0 70px;
+    background-color: $sub-color;
     .section-ttl::before{
         content: '制作物';
     }
-    dl{
-        dt{
-            background-color: #394867;
-            color: #fff;
-            padding: 16px 0;
-            text-align: center;
-            font-size: 18px;
-            position: relative;
-            border: 1px solid var(--subcolor);
-            &::after{
-                font-family: "Font Awesome 5 Free";
-                font-weight: 900;
-                content: '\f0d7';
-                display: inline-block;
-                font-size: 20px;
-                position: absolute;
-                right: 60px;
-                transition: .3s ease-in-out;
-            }
-            &.open::after{
-                transform: rotate(180deg);
-                transition: .3s ease-in-out;
+}
+.works-main-ttl {
+    background-color: #394867;
+    color: #fff;
+    padding: 16px 0;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+    // border: 1px solid $sub-color;
+    &::after{
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: '\f0d7';
+        display: inline-block;
+        font-size: 20px;
+        position: absolute;
+        right: 60px;
+        transition: .3s ease-in-out;
+    }
+    &.open::after{
+        transform: rotate(180deg);
+        transition: .3s ease-in-out;
 
-            }
-        }
-        dd{
-            background-color: #fff;
-            padding: 20px 0;
-            display: none;
-            .tab-txt{
-                &:not(:last-child){
-                    margin-bottom: 20px;
-                }
-            }
-            .work-img{
-                margin-bottom: 10px;
-                img{
-                    max-width: 250px;
-                    max-height: 200px;
-                    vertical-align: bottom;
-                }
-                text-align: center;
-            }
-            .work-ttl{
-                text-align: center;
-                font-size: 16px;
-                font-weight: 700;
-                margin-bottom: 5px;
-            }
-            .work-cnt{
-                width: 85%;
-                margin: 0 auto 20px;
-                font-size: 14px;
-                font-weight: normal;
-            }
-            .work-btn{
-                margin-bottom: 30px;
-            }
-        }
     }
-    .tab-group{
-        display: flex;
-        .tab{
-            flex: 1;
-            text-align: center;
-            background-color: var(--basecolor);
-            color: #fff;
-            padding: 17px 0;
-            cursor: pointer;
-            &:not(:last-child){
-                border-right: 1px solid #fff;
-            }
-            &.active{
-                background-color: #fff;
-                color: #000;
-                text-decoration: underline;
-            }
-        }
-        @include sp(){
-            display: none;
-        }
+    @include sp() {
+        border-bottom: 1px solid #fff;
     }
-    .tab-cnt-group{
-        padding: 35px 20px;
-        background-color: #fff;
-        .tab-cnt{
-            display: none;
-            flex-wrap: wrap;
-            &.show{
-                display: flex;
-                justify-content: center;
-            }
-            .tab-txt{
-                flex: 0 0 250px ;
-                margin: 0 10px 20px;
-                display: flex;
-                flex-direction: column;
-                .work-img{
-                    margin-bottom: 20px;
-                }
-                img{
-                    height:170px;
-                    width: 100%;
-                    vertical-align: bottom;
-                }
-                .work-cnt{
-                    font-size: 15px;
-                    line-height: 1.5;
-                    margin-bottom: 20px;
-                }
-            }
-            &:last-child{
-                img{
-                    height: 200px;
-                }
-            }
-        }
-        .work-ttl{
-            font-size: 18px;
-            margin-bottom: 5px;
-            text-align: center;
-        }
+}
+.works-ttl {
+    font-size: 18px;
+    text-align: center;
+    padding: .5em 0;
+
+}
+.works__wrap > div {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+.works__item {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    width: 32%;
+    @include sp() {
+        width: 90%;
+        margin: 0 auto;
     }
-    .work-btn{
+}
+.works__item__txt {
+    padding: 0 10px 20px;
+    flex-grow: 1;
+}
+.works__item__img img {
+    object-fit: cover;
+}
+.tab-group{
+    display: flex;
+    .tab{
+        flex: 1;
         text-align: center;
-        margin-top: auto;
-        a{
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: var(--accentcolor);
-            font-size: 14px;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            &:hover{
-                opacity: 0.8;
-                transition: all .3s;
-            }
+        background-color: $base-color;
+        color: #fff;
+        padding: 17px 0;
+        cursor: pointer;
+        font-size: 18px;
+        &:not(:last-child){
+            border-right: 1px solid #fff;
+        }
+        &.is-active{
+            background-color: #fff;
+            color: #000;
+            text-decoration: underline;
         }
     }
+    @include sp(){
+        display: none;
+    }
+}
+.tab-cnt{
+    display: none;
+    @include sp() {
+        display: block;
+    }
+    div {
+        @include sp() {
+            display: block;
+        }
+    }
+    &.is-show{
+        display: flex;
+        justify-content: center;
+        @include sp() {
+            display: block;
+        }
+    }
+    .tab-txt{
+        flex: 0 0 31% ;
+        margin: 0 10px 20px;
+        max-width: 260px;
+        display: flex;
+        flex-direction: column;
+        .works__img{
+            margin-bottom: 10px;
+        }
+        img{
+            height:170px;
+            width: 100%;
+            vertical-align: bottom;
+        }
+        .work-cnt{
+            display: flex;
+            flex-grow: 1;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        @include pc() {
+            flex-direction: 0 0 30%;
+        }
+    }
+}
+.work-ttl{
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 /************************
         #contact
 ************************/
 #contact{
-    padding: 50px 0;
+    padding: 50px 0 70px;
     text-align: center;
     .section-ttl::before{
         content: 'コンタクト';
     }
     .sub-ttl{
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
 }
@@ -570,7 +615,7 @@ body{
     padding: 23px 0;
     text-align: center;
     color: #fff;
-    background: var(--gradientcolor);
+    background: $gradient-color;
     font-size: 12px;
     font-weight: normal;
     .footer-logo{
