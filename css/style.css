@@ -7,10 +7,10 @@
         共通CSS
 ************************/
 body {
-  font-family: 'Noto Sans JP', sans-serif;
-  letter-spacing: 0.02em;
   color: #2d2d2d;
+  font-family: "Noto Sans JP", sans-serif;
   font-size: 16px;
+  letter-spacing: .02em;
 }
 
 img {
@@ -38,35 +38,35 @@ img {
 }
 
 .container {
-  padding: 0 20px;
-  max-width: 1040px;
   margin: 0 auto;
+  max-width: 1040px;
+  padding: 0 20px;
 }
 
 .section-ttl {
-  font-size: 30px;
-  text-align: center;
   color: #2d4059;
+  font-size: 30px;
   margin-bottom: 5px;
   position: relative;
+  text-align: center;
 }
 
 .section-ttl::before {
-  content: '私について';
-  font-size: 12px;
+  content: "私について";
   display: inline-block;
+  font-size: 12px;
   font-weight: normal;
-  position: absolute;
-  top: -15px;
   left: 0;
+  position: absolute;
   right: 0;
+  top: -15px;
 }
 
 .sub-ttl {
   font-size: 14px;
-  text-align: center;
-  margin-bottom: 30px;
   font-weight: normal;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 .btn-wrap {
@@ -75,32 +75,35 @@ img {
 }
 
 .btn {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
-  width: 50%;
-  max-width: 200px;
   background-color: #ea5455;
-  color: #fff !important;
+  border-radius: 5px;
+  color: #ffffff !important;
+  display: flex;
   font-size: 15px;
+  justify-content: center;
+  max-width: 200px;
+  padding: .8em 1.5em;
+  position: relative;
   text-align: center;
   text-decoration: none;
-  padding: .8em 1.5em;
+  width: 50%;
 }
 
 .btn::after {
-  content: '';
+  border-right: 3px solid #ffffff;
+  border-top: 3px solid #ffffff;
+  content: "";
   display: inline-block;
-  width: 7px;
   height: 7px;
-  border-top: 3px solid #fff;
-  border-right: 3px solid #fff;
+  position: absolute;
+  right: 15%;
   transform: rotate(45deg);
+  width: 7px;
 }
 
 .btn:hover {
-  opacity: 0.8;
+  opacity: .8;
   transition: all .3s;
 }
 
@@ -124,20 +127,20 @@ img {
         フォント
 ************************/
 .ffMont {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /************************
         header
 ************************/
 .header {
-  height: 70px;
   background: linear-gradient(118.60037deg, #021b3e 5.19676%, #517795 97.32639%);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
+  height: 70px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 100;
 }
 
@@ -148,17 +151,17 @@ img {
 }
 
 .header .container {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
   height: 100%;
+  justify-content: space-between;
   width: 100%;
 }
 
 .header .header-logo img {
-  width: auto;
   height: 30px;
   vertical-align: middle;
+  width: auto;
 }
 
 /* ハンバーガーメニュー */
@@ -167,25 +170,25 @@ img {
 }
 
 .drawer-open {
+  align-items: center;
+  cursor: pointer;
   display: flex;
   height: 60px;
-  width: 60px;
   justify-content: center;
-  align-items: center;
   position: relative;
+  width: 60px;
   z-index: 100;
-  cursor: pointer;
 }
 
 .drawer-open span, .drawer-open span::before, .drawer-open span::after {
-  content: '';
+  background: #ffffff;
+  border-radius: 3px;
+  content: "";
   display: block;
   height: 3px;
-  width: 25px;
-  border-radius: 3px;
-  background: #fff;
-  transition: .5s;
   position: absolute;
+  transition: .5s;
+  width: 25px;
 }
 
 .drawer-open span::before {
@@ -212,16 +215,16 @@ img {
 }
 
 .drawer-content {
-  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
   height: 100%;
-  position: fixed;
-  top: 0;
   left: 100%;
   /*画面外へ飛ばす*/
-  z-index: 99;
-  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
   transition: .5s;
-  color: #fff;
+  width: 100%;
+  z-index: 99;
 }
 
 .drawer-content .drawer-list {
@@ -253,23 +256,23 @@ img {
 }
 
 .pc-menu-list .pc-menu a {
-  text-decoration: none;
-  color: #fff;
+  color: #ffffff;
   font-size: 16px;
   font-weight: normal;
+  text-decoration: none;
 }
 
 /************************
         #hero
 ************************/
 #hero {
-  height: 600px;
-  width: 100%;
-  position: relative;
   background: url("../img/fv-sp.jpg") no-repeat;
+  background-position: 100px 0;
   background-size: cover;
-  background-position: 100px 0px;
+  height: 600px;
   margin-top: 70px;
+  position: relative;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -307,10 +310,10 @@ img {
 }
 
 #hero .scrolldown {
-  position: absolute;
-  bottom: 1%;
-  right: 50%;
   animation: arrowmove 1s ease-in-out infinite;
+  bottom: 1%;
+  position: absolute;
+  right: 50%;
 }
 
 @keyframes arrowmove {
@@ -326,45 +329,65 @@ img {
 }
 
 #hero .scrolldown span {
-  position: absolute;
-  left: -20px;
   bottom: 10px;
   color: #2d2d2d;
-  font-size: 0.7rem;
-  letter-spacing: 0.05rem;
-  -ms-writing-mode: tb-rl;
-  -webkit-writing-mode: vertical-rl;
-  writing-mode: vertical-rl;
+  font-size: .7rem;
+  left: -20px;
+  letter-spacing: .05rem;
+  position: absolute;
   text-transform: lowercase;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
 }
 
 #hero .scrolldown::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: -6px;
-  width: 1px;
-  height: 20px;
   background: #2d2d2d;
+  bottom: 0;
+  content: "";
+  height: 20px;
+  position: absolute;
+  right: -6px;
   transform: skewX(-31deg);
+  width: 1px;
 }
 
 #hero .scrolldown::after {
-  content: '';
-  position: absolute;
+  background: #2d2d2d;
   bottom: 0;
+  content: "";
+  height: 50px;
+  position: absolute;
   right: 0;
   width: 1px;
-  height: 50px;
-  background: #2d2d2d;
 }
 
 /************************
         #about
 ************************/
 #about {
-  padding: 50px 0 70px;
   background-color: #eaedf1;
+  padding: 50px 0 70px;
+}
+
+@media (min-width: 768px) {
+  #about .about__wrap {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    max-width: initial;
+  }
+  #about .about__wrap .profile-img {
+    margin-bottom: 0;
+    margin-right: 50px;
+    width: 40%;
+  }
+  #about .about__wrap .profile-img img {
+    vertical-align: bottom;
+  }
+  #about .about__wrap .about__txt {
+    flex: 1;
+  }
 }
 
 #about .section-ttl {
@@ -377,29 +400,11 @@ img {
   }
 }
 
-#about .about__wrap {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
 #about .profile-img {
   margin-bottom: 15px;
-  text-align: center;
   position: relative;
+  text-align: center;
   z-index: 0;
-}
-
-#about .profile-img::before {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(#999 30%, transparent 31%), radial-gradient(#999 30%, transparent 31%);
-  background-size: 6px 6px;
-  background-position: 0 0, 3px 3px;
-  z-index: -1;
 }
 
 @media (max-width: 767px) {
@@ -408,10 +413,23 @@ img {
   }
 }
 
+#about .profile-img::before {
+  background-image: radial-gradient(#999999 30%, transparent 31%), radial-gradient(#999999 30%, transparent 31%);
+  background-position: 0 0, 3px 3px;
+  background-size: 6px 6px;
+  bottom: -20px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  right: -20px;
+  width: 100%;
+  z-index: -1;
+}
+
 #about .about__name {
-  margin-bottom: 15px;
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 15px;
 }
 
 #about .about__name small {
@@ -426,26 +444,6 @@ img {
   margin-bottom: 10px;
 }
 
-@media (min-width: 768px) {
-  #about .about__wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: initial;
-  }
-  #about .about__wrap .profile-img {
-    width: 40%;
-    margin-right: 50px;
-    margin-bottom: 0;
-  }
-  #about .about__wrap .profile-img img {
-    vertical-align: bottom;
-  }
-  #about .about__wrap .about__txt {
-    flex: 1;
-  }
-}
-
 /************************
         #service
 ************************/
@@ -453,27 +451,39 @@ img {
   padding: 50px 0 70px;
 }
 
+@media (min-width: 768px) {
+  #service .service__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #service .service__wrap .service__item {
+    margin: 0 10px 20px 10px;
+    width: 30%;
+  }
+}
+
 #service .section-ttl {
   margin-bottom: 5px;
 }
 
 #service .section-ttl::before {
-  content: 'サービス';
+  content: "サービス";
 }
 
 #service .service__item {
   background-color: #eaedf1;
+  color: #4b4b4b;
+  margin: 0 auto 10px;
+  max-width: 66.6vw;
   padding: 20px;
   text-align: center;
-  color: #4b4b4b;
-  max-width: 66.6vw;
-  margin: 0 auto 10px;
 }
 
 #service .service__item span {
+  display: inline-block;
   font-size: 60px;
   margin-bottom: 15px;
-  display: inline-block;
 }
 
 #service .service__item .service__ttl {
@@ -483,50 +493,44 @@ img {
 #service .service__item .service__cnt {
   font-size: 14px;
   font-weight: normal;
-  text-align: left;
   line-height: 1.5;
   margin-top: auto;
-}
-
-@media (min-width: 768px) {
-  #service .service__wrap {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  #service .service__wrap .service__item {
-    margin: 0 10px 20px 10px;
-    width: 30%;
-  }
+  text-align: left;
 }
 
 /************************
         #works
 ************************/
 #works {
-  padding: 50px 0 70px;
   background-color: #eaedf1;
+  padding: 50px 0 70px;
 }
 
 #works .section-ttl::before {
-  content: '制作物';
+  content: "制作物";
 }
 
 .works-main-ttl {
   background-color: #394867;
-  color: #fff;
-  padding: 16px 0;
-  text-align: center;
+  color: #ffffff;
   font-size: 18px;
+  padding: 16px 0;
   position: relative;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .works-main-ttl {
+    border-bottom: 1px solid #ffffff;
+  }
 }
 
 .works-main-ttl::after {
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  content: '\f0d7';
+  content: "\f0d7";
   display: inline-block;
+  font-family: "Font Awesome 5 Free";
   font-size: 20px;
+  font-weight: 900;
   position: absolute;
   right: 60px;
   transition: .3s ease-in-out;
@@ -537,20 +541,14 @@ img {
   transition: .3s ease-in-out;
 }
 
-@media (max-width: 767px) {
-  .works-main-ttl {
-    border-bottom: 1px solid #fff;
-  }
-}
-
 .works-ttl {
   font-size: 18px;
-  text-align: center;
   padding: .5em 0;
+  text-align: center;
 }
 
 .works__wrap > div {
-  background-color: #fff;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
 }
@@ -564,14 +562,14 @@ img {
 
 @media (max-width: 767px) {
   .works__item {
-    width: 90%;
     margin: 0 auto;
+    width: 90%;
   }
 }
 
 .works__item__txt {
-  padding: 0 10px 20px;
   flex-grow: 1;
+  padding: 0 10px 20px;
 }
 
 .works__item__img img {
@@ -582,30 +580,30 @@ img {
   display: flex;
 }
 
-.tab-group .tab {
-  flex: 1;
-  text-align: center;
-  background-color: #2d4059;
-  color: #fff;
-  padding: 17px 0;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-.tab-group .tab:not(:last-child) {
-  border-right: 1px solid #fff;
-}
-
-.tab-group .tab.is-active {
-  background-color: #fff;
-  color: #000;
-  text-decoration: underline;
-}
-
 @media (max-width: 767px) {
   .tab-group {
     display: none;
   }
+}
+
+.tab-group .tab {
+  background-color: #2d4059;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 1;
+  font-size: 18px;
+  padding: 17px 0;
+  text-align: center;
+}
+
+.tab-group .tab:not(:last-child) {
+  border-right: 1px solid #ffffff;
+}
+
+.tab-group .tab.is-active {
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: underline;
 }
 
 .tab-cnt {
@@ -636,11 +634,17 @@ img {
 }
 
 .tab-cnt .tab-txt {
+  display: flex;
   flex: 0 0 31%;
+  flex-direction: column;
   margin: 0 10px 20px;
   max-width: 260px;
-  display: flex;
-  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .tab-cnt .tab-txt {
+    flex-direction: 0 0 30%;
+  }
 }
 
 .tab-cnt .tab-txt .works__img {
@@ -649,8 +653,8 @@ img {
 
 .tab-cnt .tab-txt img {
   height: 170px;
-  width: 100%;
   vertical-align: bottom;
+  width: 100%;
 }
 
 .tab-cnt .tab-txt .work-cnt {
@@ -659,12 +663,6 @@ img {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
-}
-
-@media (min-width: 768px) {
-  .tab-cnt .tab-txt {
-    flex-direction: 0 0 30%;
-  }
 }
 
 .work-ttl {
@@ -682,7 +680,7 @@ img {
 }
 
 #contact .section-ttl::before {
-  content: 'コンタクト';
+  content: "コンタクト";
 }
 
 #contact .sub-ttl {
@@ -693,12 +691,12 @@ img {
         .footer
 ************************/
 .footer {
-  padding: 23px 0;
-  text-align: center;
-  color: #fff;
   background: linear-gradient(118.60037deg, #021b3e 5.19676%, #517795 97.32639%);
+  color: #ffffff;
   font-size: 12px;
   font-weight: normal;
+  padding: 23px 0;
+  text-align: center;
 }
 
 .footer .footer-logo {
