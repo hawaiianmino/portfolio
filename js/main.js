@@ -14,6 +14,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.tab-cnt')[index].classList.add('is-show');
   }
 
+  const els = document.querySelectorAll('.js_delay');
+  const cb = function(entries,observer) {
+    entries.forEach((entry,i) => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('inview');
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+  const options = {
+    rootMargin: "0px 0px",
+  }
+  const io = new IntersectionObserver(cb, options);
+  els.forEach(el => io.observe(el))
 
 });
 

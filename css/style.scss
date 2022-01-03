@@ -626,3 +626,23 @@ img {
         }
     }
 }
+
+// js設定
+.js_delay {
+    & .js_item {
+        transition: all .8s;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    &.inview {
+        & .js_item {
+            opacity: 1;
+            transform: none;
+            @for $i from 1 through 10 {
+                &:nth-child(#{$i}) {
+                    transition-delay: $i * 0.1s;
+                }
+            }
+        }
+    }
+}
