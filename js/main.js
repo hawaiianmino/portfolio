@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const index = arrayTabs.indexOf(this);
     document.querySelectorAll('.tab-cnt')[index].classList.add('is-show');
   }
+
+
 });
 
 
@@ -22,14 +24,6 @@ $(function () {
     $(this).next('div').slideToggle();
     $(this).toggleClass("open");
   });
-  //タブ切り替え
-  // $(".tab").click(function () {
-  //   const index = $(this).index();
-  //   $(".active").removeClass("active");
-  //   $(this).addClass("active");
-  //   $(".show").removeClass("show");
-  //   $(".tab-cnt").eq(index).addClass("show");
-  // });
   // ページスクロール
   $('a[href^="#"]').click(function () {
     var speed = 500;
