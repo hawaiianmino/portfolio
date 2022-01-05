@@ -610,8 +610,8 @@ img {
     }
 }
 .form-wrapper {
-    width: 50%;
     margin: 0 auto;
+    width: 50%;
 }
 @media (max-width:768px) {
     .form-wrapper {
@@ -627,28 +627,27 @@ img {
 .form-box {
     display: flex;
     flex-direction: column;
-    text-align: left;
     margin-bottom: 20px;
+    text-align: left;
     label {
-        padding: 5px;
         margin-bottom: 5px;
+        padding: 5px;
     }
-    input,
-    textarea {
-        border: none;
+    input, textarea {
         background-color: #ecedf2;
+        border: none;
         padding: 10px;
     }
 }
 .required {
-    font-size: 12px;
-    display: inline-block;
-    line-height: 1;
-    padding: 5px;
-    border-radius: 5px;
     background-color: #ea5455;
-    color: #fff;
+    border-radius: 5px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
     margin-left: 5px;
+    padding: 5px;
 }
 .end-message {
     display: none;
@@ -657,8 +656,21 @@ img {
     display: none;
 }
 .submit-btn {
+    align-items: center;
+    background-color: #ea5455;
     border: none;
+    border-radius: 5px;
+    color: #ffffff !important;
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
     margin: 0 auto;
+    max-width: 200px;
+    padding: .8em 1.5em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: 50%;
 }
 /************************
         .footer
@@ -681,9 +693,9 @@ img {
 // js設定
 .js_delay {
     & .js_item {
-        transition: all .8s;
         opacity: 0;
         transform: translateY(10px);
+        transition: all .8s;
     }
     &.inview {
         & .js_item {
@@ -691,11 +703,9 @@ img {
             transform: none;
             @for $i from 1 through 10 {
                 &:nth-child(#{$i}) {
-                    transition-delay: $i * 0.1s;
+                    transition-delay: $i * .1s;
                 }
             }
         }
     }
 }
-
-
