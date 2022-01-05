@@ -54,7 +54,7 @@ img {
 }
 .section-ttl {
     color: $base-color;
-    font-size: 30px;
+    font-size: 26px;
     margin-bottom: 5px;
     position: relative;
     text-align: center;
@@ -250,7 +250,7 @@ img {
 ************************/
 #hero {
     background: url("../img/fv-sp.jpg") no-repeat;
-    background-position: 50px 0;
+    // background-position: 50px 0;
     background-size: cover;
     height: 600px;
     @include pc() {
@@ -262,12 +262,18 @@ img {
     width: 100%;
     .hero__text {
         background: rgba( 255,255,255,.9);
-        padding: 20px;
+        padding: 20px 40px;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        @include sp() {
+            padding: 20px;
+        }
         .sub-ttl {
             text-align: left;
+        }
+        .btn {
+            width: 65%;
         }
     }
     .name {
@@ -603,7 +609,7 @@ img {
     padding: 50px 0 70px;
     text-align: center;
     .section-ttl::before {
-        content: "コンタクト";
+        content: "お問い合わせ";
     }
     .sub-ttl {
         margin-bottom: 30px;

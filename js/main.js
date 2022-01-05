@@ -47,7 +47,7 @@ $(function () {
         0: function() {
           $(".end-message").slideDown();
           $(".submit-btn").fadeOut();
-          window.location.href = ("thanks.html");
+          // window.location.href = ("thanks.html");
         },
         200: function() {
           $(".false-message").slideDown();
