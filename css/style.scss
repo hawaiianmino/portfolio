@@ -435,7 +435,7 @@ img {
     .section-ttl {
         margin-bottom: 5px;
         &::before {
-            content: "サービス";
+            content: "スキル";
         }
     }
     .service__item {
@@ -655,12 +655,13 @@ img {
 .false-message {
     display: none;
 }
-.submit-btn {
+#form .btn.submit-btn {
     align-items: center;
     background-color: #ea5455;
     border: none;
     border-radius: 5px;
-    color: #ffffff !important;
+    color: #ffffff ;
+    cursor: pointer;
     display: flex;
     font-size: 15px;
     justify-content: center;
@@ -671,6 +672,10 @@ img {
     text-align: center;
     text-decoration: none;
     width: 50%;
+    &:hover {
+        opacity: .8;
+        transition: all .3s;
+    }
 }
 /************************
         .footer
