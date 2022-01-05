@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+  //タブ切り替えアニメーション
   const tabs = document.querySelectorAll('.tab');
   for(let i = 0; i < tabs.length; i++) {
     tabs[i].addEventListener('click', tabSwitch,false);
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.tab-cnt')[index].classList.add('is-show');
   }
 
+  //フワッと表示アニメーション
   const els = document.querySelectorAll('.js_delay');
   const cb = function(entries,observer) {
     entries.forEach((entry,i) => {
@@ -31,8 +33,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-
 $(function () {
+  
+  $('#form').submit(function(e) {
+
+    var formData = $('#form').serialize();
+    $.ajax({
+      url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScSt0mnysdtRtjM1pnLXLN7UxUluLkgICPUKEB5IHB_t6OE2Q/formResponse',
+      data: formData,
+      type: 'POST',
+      dataType: "xml",
+      statusCode: {
+        0: function() {
+          $(".end-message").slideDown();
+          $(".submit-btn").fadeOut();
+          window.location.href = ("thanks.html");
+        },
+        200: function() {
+          $(".false-message").slideDown();
+        }
+      }
+    });
+    e.preventDefault();
+  });
+
   //アコーディオン
   $(".works-main-ttl").on("click", function () {
     $(this).next('div').slideToggle();

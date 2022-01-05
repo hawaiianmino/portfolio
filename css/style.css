@@ -687,6 +687,66 @@ img {
   margin-bottom: 30px;
 }
 
+.form-wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .form-wrapper {
+    width: 65%;
+  }
+}
+
+@media (max-width: 767px) {
+  .form-wrapper {
+    width: 100%;
+  }
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-box label {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.form-box input,
+.form-box textarea {
+  border: none;
+  background-color: #ecedf2;
+  padding: 10px;
+}
+
+.required {
+  font-size: 12px;
+  display: inline-block;
+  line-height: 1;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ea5455;
+  color: #fff;
+  margin-left: 5px;
+}
+
+.end-message {
+  display: none;
+}
+
+.false-message {
+  display: none;
+}
+
+.submit-btn {
+  border: none;
+  margin: 0 auto;
+}
+
 /************************
         .footer
 ************************/

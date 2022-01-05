@@ -244,16 +244,39 @@
   <div id="contact">
     <div class="container">
       <h2 class="section-ttl ffMont">Contact</h2>
-      <h3 class="sub-ttl">
+      <p class="sub-ttl">
         お仕事のご依頼、不明点などある場合は<br />以下のフォームよりご連絡ください。
-      </h3>
-      <a href="https://form.run/@50storm-contact" class="btn m-auto">お問い合わせ</a>
+      </p>
+      <div class="form-wrapper">
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScSt0mnysdtRtjM1pnLXLN7UxUluLkgICPUKEB5IHB_t6OE2Q/formResponse" id="form">
+          <div class="form-box">
+            <label for="name">お名前<span class="required">必須</span></label>
+            <input type="text" name="entry.1751532552" id="name" placeholder="山田太郎" required>
+            <p class="err-message1"></p>
+          </div>
+          <div class="form-box">
+            <label for="email">Eメール<span class="required">必須</span></label>
+            <input type="mail" name="entry.77573377" id="email" placeholder="xxxx@gmail.com" required>
+            <p class="err-message2"></p>
+          </div>
+          <div class="form-box">
+            <label for="comment">お問い合わせ内容<span class="required">必須</span></label>
+            <textarea name="entry.1750318478" id="comment" cols="30" rows="10" required></textarea>
+            <p class="err-message3"></p>
+          </div>
+          <input type="submit" class="btn submit-btn" value="送信する">
+        </form>
+        <p class="end-message">お問い合わせを承りました。<br>内容を確認の上お返事致しますので少々お待ちください。</p>
+        <p class="false-message">送信に失敗しました。入力内容に間違いが無いか再度ご確認ください。</p>
+      </div>
     </div>
   </div>
   <footer class="footer">
     <div class="footer-logo"><img src="img/logo.png" alt="" /></div>
     <span class="ffMont">Designed,Coding by Minoru Igarashi</span>
   </footer>
+  <!-- jQuery読み込み -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="js/main.js"></script>
 </body>
 
